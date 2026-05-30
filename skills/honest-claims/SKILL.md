@@ -1,5 +1,5 @@
 ---
-name: honest-completion-claims
+name: honest-claims
 description: Invoke before stating that work is "done", "complete", "verified", "ready", "deployed", "fixed", "approved", or "working" — and before marking any TodoWrite task complete or signing off any review. Forces grounding the claim in observed runtime behavior, not exit codes, test counts, or subagent review verdicts. Use even when the user did not explicitly ask for verification; overclaiming erodes trust faster than slow honest progress.
 ---
 

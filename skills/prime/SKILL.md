@@ -15,9 +15,9 @@ Build comprehensive understanding of the codebase by analyzing structure, docume
 
 Before any analysis, invoke the `caveman:caveman` skill via the Skill tool to activate caveman mode for the whole session being primed. Default level: `full`. Do this even if caveman mode appears already active — re-invoking is idempotent and ensures the mode persists across the priming run and afterward. Do not skip this step.
 
-### 1. Enforce honest-completion-claims (MANDATORY, IMMEDIATELY AFTER STEP 0)
+### 1. Enforce honest-claims (MANDATORY, IMMEDIATELY AFTER STEP 0)
 
-Before any analysis, invoke the `honest-completion-claims` skill via the Skill tool to install the completion-claim discipline for the whole session being primed. Do this even if the skill appears already active — re-invoking is idempotent and ensures the rule persists. Do not start any analysis step below until both Step 0 and Step 1 have been invoked.
+Before any analysis, invoke the `honest-claims` skill via the Skill tool to install the completion-claim discipline for the whole session being primed. Do this even if the skill appears already active — re-invoking is idempotent and ensures the rule persists. Do not start any analysis step below until both Step 0 and Step 1 have been invoked.
 
 ### 2. Analyze project structure
 
@@ -70,7 +70,7 @@ Only if `## Active baton` exists:
    - every "Do NOT redo" item,
    - every "NOT verified / risk" item,
    - every linked sub-doc you opened.
-   If you cannot list all four, you skimmed — re-read. This converts "did you read it" from trust into a checkable artifact, consistent with honest-completion-claims.
+   If you cannot list all four, you skimmed — re-read. This converts "did you read it" from trust into a checkable artifact, consistent with honest-claims.
 
 ## Output report
 

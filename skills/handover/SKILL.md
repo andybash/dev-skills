@@ -19,7 +19,7 @@ Write all three in **caveman-lite style** (drop articles/filler/hedging; keep ev
 - Branch + commit: `git rev-parse --abbrev-ref HEAD` and `git rev-parse --short HEAD`. Use the literal values; never guess the branch.
 - `git status`, `git diff --stat`, `git log --oneline -15`. Quote real test output if tests ran.
 - If the session narrative conflicts with git (claimed a commit/fix that isn't there), record the discrepancy under "NOT verified" — do not launder it into "shipped".
-- Invoke `honest-completion-claims` if available (skip if it errors). Either way, split **verified** (with evidence) from **unverified** (with how-to-verify).
+- Invoke `honest-claims` if available (skip if it errors). Either way, split **verified** (with evidence) from **unverified** (with how-to-verify).
 
 **2. Resolve memory dir + date.**
 ```bash
