@@ -1,13 +1,13 @@
 ---
 name: prime
-description: Build comprehensive understanding of an unfamiliar or context-stale codebase by analyzing structure, docs, key files, and git state, then producing a scannable orientation report. Use this whenever the user wants to "prime", "get up to speed", "load project context", "orient yourself", "understand this codebase", "what is this repo", onboard to a new repo, or starts a fresh session in a project you don't yet have context on — even if they don't say the word "prime".
+description: Build comprehensive understanding of an unfamiliar or context-stale codebase by analyzing structure, docs, key files, and git state, then producing a scannable orientation report. Also resumes session continuity left by the `handover` skill — reads the active handover doc in full and frames the prioritized next tasks. Use this whenever the user wants to "prime", "get up to speed", "load project context", "orient yourself", "understand this codebase", "what is this repo", "resume", "pick up where we left off", onboard to a new repo, or starts a fresh session in a project you don't yet have context on — even if they don't say the word "prime".
 ---
 
 # Prime: Load Project Context
 
 ## Objective
 
-Build comprehensive understanding of the codebase by analyzing structure, documentation, and key files, then report it back so the rest of the session can proceed with full context.
+Build comprehensive understanding of the codebase by analyzing structure, documentation, and key files, then report it back so the rest of the session can proceed with full context. If a previous session left a handover, resume it *after* that understanding is built — the handover names branches, files, and decisions that only make sense once you know the codebase.
 
 ## Process
 
@@ -53,9 +53,32 @@ Use the Bash tool:
 - `git log -10 --oneline` — recent activity and development focus.
 - `git status` — current branch and uncommitted work.
 
+### 6. Session-continuity intake (LAST — runs only after Steps 2–5 give you project context)
+
+This step is additive and comes last on purpose: a handover references branches, files, and decisions that are only legible once you've built the understanding above. Running it earlier would muddy both the context load and the handover read.
+
+**If `MEMORY.md` has no `## Active baton` section (or there is no MEMORY.md): there is nothing to resume. This is the normal cold-prime case — do not search, do not flag it, do not mention it. You are done with analysis; go to the report.** A missing baton is expected, not an error.
+
+`MEMORY.md` is auto-loaded, so its `## Active baton` section (if present) is already in your context. The baton fixes task **priority and order** — but it is an index ONLY and is NOT sufficient. The deep context lives in the dated handover doc it names, and you must read that doc IN FULL. Skimming it and inferring the rest is the exact failure this is built to prevent.
+
+Only if `## Active baton` exists:
+
+1. **Read the active handover doc in full.** Use the `Read` tool on the path the baton names. Read the *entire* file — if it paginates (>2000 lines), loop `offset` until EOF. Do NOT use `Grep` or partial reads to sample it; `Grep` is for locating code, and it is banned here precisely because it enables skim-and-infer.
+2. **Read live-task dependencies in full.** For each currently-open task, open — in full, same rule — the memory files and spec/plan paths that task links. Scope this to *open tasks only*, not the whole archive, so "read everything" stays finite and actually gets done.
+3. **Emit a read receipt before proposing anything.** From what you just read (not from the baton summary), enumerate:
+   - every open task,
+   - every "Do NOT redo" item,
+   - every "NOT verified / risk" item,
+   - every linked sub-doc you opened.
+   If you cannot list all four, you skimmed — re-read. This converts "did you read it" from trust into a checkable artifact, consistent with honest-completion-claims.
+
 ## Output report
 
 Provide a concise, scannable summary. Use bullet points and clear headers.
+
+### Next tasks (from active baton) — ONLY if a handover was resumed
+
+Lead with this section when Step 6 found an active baton. Reproduce the baton's task list in its exact priority order (P0 first), each with its why + concrete next action + done-criterion + blocker. Do not reorder or re-prioritize — the baton is authoritative for sequencing. State plainly which single task is next. Omit this whole section entirely when priming cold (no handover).
 
 ### Project overview
 - Purpose and type of application.
